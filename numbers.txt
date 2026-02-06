@@ -1,0 +1,44 @@
+// __  __ __ __ ___  ___ ____   ____ ____   __ 
+// ||\ || || || ||\\//|| || )) ||    || \\ (( \
+// ||\\|| || || || \/ || ||=)  ||==  ||_//  \\ 
+// || \|| \\_// ||    || ||_)) ||___ || \\ \_))
+
+setcpm(120/4)
+
+beat:
+s("ddm110_bd!4")
+  .room(.2)
+  .pan(perlin.range(0.2,0.8))
+  ._scope({thickness:8,scale:.5})
+numbers:
+s("[-@3 num:[1 | 2 | 3 | 5 | 8 | 9]]")
+  .early("<0 0 0 0.5>")
+  .room(1.5)
+  .roomsize(1)
+  .hpf(200)
+  .delay("<[0 | 1 | 0.2]>")
+  .gain("<0!8 .6!1000>")
+  .pan(perlin.range(0.3,0.7))
+  ._scope({thickness:4,height:20})
+// const CHORDS = "<C _ F Am>"
+const CHORDS = "<Cm Eb Fm Ab>"
+// const CHORDS = "<Fm Bbm Ab Db>"
+
+bass:
+n("[3,0]@1.5 -@0.5 0*2!2")
+  .chord(CHORDS).voicing()
+  .add(note("-12"))
+  .gain("<0!4 3!1000>")
+  .sound("tri")
+  .lpf(600)
+
+melody:
+n("<[0,3]!2 [0 - 3] [0,3]!2 -> 1 2 1 3 <4!3 [0,4]> 2 3")
+  .chord(CHORDS).voicing()
+  .clip(perlin.range(0.5,1.5).fast(2))
+  .euclid("[6 | 4 | 3 | 7 | 8]",8)
+  .sound("tri")
+  .add(note("-12, 0,7,<- 12>"))
+  .lpf(perlin.range(600,10000).slow(4))
+  .room(perlin.range(.4,.8))
+  .punchcard({vertical:0,flipTime:0,flipValues:0,fill:0,stroke:1,fillActive:1,fold:1,vertical:1})

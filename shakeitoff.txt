@@ -1,0 +1,7 @@
+setcpm(140/4)
+
+s(`[
+bd@2 sd bd@3 sd bd!2 - sd -!2 bd sd - ,
+oh@2 hh!2 - hh!2 -!2 hh!2 - hh!2 - hh
+]/2`)
+.bank("linn9000")

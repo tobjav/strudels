@@ -1,0 +1,46 @@
+setcpm(120/4)
+
+chord:
+note(`
+<[c2,e3,c4]
+[a2,e3,b3]
+[g2,d3,b3]
+[f#2,d3,b3]
+[f2,c3,a3]
+[e2,b2,g3]>
+`)
+.sound("gm_oboe:4")
+.lpf(1000)
+.room(0.6)
+._pitchwheel()
+
+melody:
+note(`<
+[c3 e3@0.5 g3@0.5 c4 e4 c4 g3 e3 g3]
+[a2 e3@0.5 b3@0.5 c4 e4 c4 b3 e3 b3]
+[g2 d3@0.5 g3@0.5 b3 g4 b3 g3 d3 g3]
+[gb2 d3@0.5 g3@0.5 b3 g4 b3 g3 d3 g3]
+[f2 f3@0.5 a3@0.5 c4 f4 c4 a3 f3 a3]
+[e2 e3@0.5 g3@0.5 b3 e4 b3 g3 e3 g3]
+>`.add("0"))
+.clip(1.25)
+.sound("gm_acoustic_guitar_nylon")
+.gain(2)
+.lpf(30000)
+.room(0.4)
+.roomsize(2)
+._punchcard({flipTime:0, fold:1, stroke:1})
+
+drums:
+s("bd -@0.5 bd@0.5 sd -, hh!3 <hh <[hh*2] [hh*3] [hh]>>")
+.bank("tr909")
+.gain("<0@6 0.8@1000>")
+.lpf(1000)
+._scope()
+
+bass:
+note("<c3 a2 g2 gb2 f2 e2>".add("-12,<7@3 8 7@2>"))
+.sound("gm_electric_bass_finger")
+.lpf(300)
+.gain(1.5)
+._punchcard()

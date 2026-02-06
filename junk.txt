@@ -1,0 +1,40 @@
+// junk
+// @tobjav
+
+setcpm(105/4)
+
+const scale = "C:hirajoshi"
+
+riff:
+n(run(16))
+.sub(n("<5 6 7 4>"))
+.euclidLegato(7,16)
+.someCyclesBy(0.3, x=>x.delay(1))
+.scale(scale)
+.sound("sax_stacc")
+.decay(.3)
+.penv(1).pattack(.1)
+.pan(.3)
+.spectrum({speed:2})
+
+bass:
+n("<0 2 -2 1>")
+.scale(scale)
+.sub(note(12))
+.sound("square")
+.lpf(400)
+.orbit(2)
+.distort(.5)
+
+kick:
+s("bd:4*4")
+.duckorbit(2).duckattack(.25)
+.distort(1)
+.postgain("<0@4 1@1000>")
+
+hh:
+s("hh:1*16")
+.euclid(13,16)
+.lpf(6000)
+.gain("<0@4 1@1000>")
+.pan(.7)

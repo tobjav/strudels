@@ -1,0 +1,37 @@
+// msg
+// @tobjav
+
+setcpm(132/4)
+
+const chords = "<C5 Eb6 AbM7 Fadd9 G5 C5 E7 G5>"
+
+const scale = "F:minor:pentatonic"
+
+riff:
+n("[2 4 6 0@2 3 5 1@2 4 6 -1@2 4 <5 7> 6]/2")
+.scale(scale)
+.orbit(2)
+.euclid("<5!4 8!1000>",8)
+.sound("saw")
+.penv(4).pattack(.05)
+.distort(1)
+.postgain(.3)
+
+drum:
+s("bd:4*4")
+.duckorbit(2).duckattack(.1)
+
+hats:
+s("hh:1").struct("x - x!3 -!2 x!4 - x!2 - x")
+
+bass:
+n("[0 <2 -1> 1 <1 -2>]/8")
+.scale(scale)
+.sub(note(24))
+.sound("supersaw")
+.distort(1)
+.lpf(400)
+.gain("<0@8 1@1000>")
+
+
+.punchcard({vertical:1,fold:0})

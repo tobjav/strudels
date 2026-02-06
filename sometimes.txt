@@ -1,0 +1,28 @@
+setcpm(120/4)
+
+const chords = "<C^9 A7b13 D-9 G13sus E-7 A7#9 D-11 G13>"
+
+
+$:
+n("[1 .. 8] | [1 .. 4]*2").fast(2)
+  .chord(chords).voicing()
+  .sound("tri")
+  .coarse(1)
+  .bpf(perlin.range(1000,2000))
+  .lpf(6000)
+  .someCyclesBy((1/2),x=>x.euclidLegato(14,16))
+  .room(1)
+
+$:
+note("<c2 a2 d2 g2 e2 a2 d2 g1>")
+  .sound("tri:4")
+  .add(note("0,<- 7>/8"))
+.punchcard({fold:0})
+
+$:
+note("c5")
+  .sound("tri")
+  .gain(.4)
+  .vowel("<a o>")
+  .coarse(2)
+.hpf(1000)

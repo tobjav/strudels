@@ -1,0 +1,52 @@
+// where samples?
+// @tobjav
+
+setcpm(110/4)
+
+const SCALE = "C:minor:pentatonic"
+
+nasty_ostinato_ad_nauseum:
+n(rev(run(4))).fast(4)
+  .scale(SCALE)
+  .add(note("0 <0!8 [12 7]*2!8>")) 
+  .sound("tri")
+  .orbit(2)
+  .gain("<0!4 1!1000>")
+  .pan(.55)
+  .compressor("-20:5:10:.002:.02")
+  .punchcard({fold:0,autorange:1,vertical:0})
+  ._pitchwheel()
+
+kit:
+s("bd:4!4")
+  .beat("0,4,8,11,14",16)
+  .gain(1)
+  .lpf(1000)
+  .duckorbit(2).duckattack(.2).duckdepth(".8")
+  .pan(sine.range(.3,.7).slow(8))
+  ._scope({scale:.2})
+
+bass:
+  n("[0 1 4 <2 2 3 2>]/4")
+  .scale(SCALE)
+  .sub(note(12))
+  .sound("square")
+  .lpf(600)
+  .orbit("<0 2!3>/4")
+  .gain(1.4)
+  ._pianoroll({vertical:1,fold:0})
+
+ticktickticktick:
+  note("<g4 b3>/2")
+  .sound("sine")
+  .struct("-!4 x!4")
+  .clip(.1).gain("<0@12 .8@1000>").lpf(500)
+  .room(1)
+  
+whine:
+note("<g5 [d5 g4]>/2")
+  .sound("sine")
+  .orbit(1)
+  .struct("x@4 x!4")
+  .clip(4).gain("<0@20 .1@1000>").lpf(500)
+  .room(.6)

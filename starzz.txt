@@ -1,0 +1,26 @@
+setcpm(100/4)
+
+kit:
+s("[bd sd bd sd bd sd bd [sd bd] bd sd bd sd bd sd [bd sd] sd]/4,hh*2")
+.distort(2)
+.orbit(1)
+/*
+buhbuhduhduh:
+note("<- [-!4 Ab4!2 G3 F3]>")
+.sound("piano")
+.distort(2)
+.lpf(500)
+.postgain(.5)
+*/
+const CHORDS = "<Db Ab Fm Eb>"
+
+chords:
+n(irand(4)).struct("x x*2 x x*3")
+.add(n("0,3,6"))
+.chord(CHORDS)
+.voicing()
+.clip("<1 1.2>")
+.sub(note(12))
+.sound("supersaw")
+
+// NEVER PLAY THIS IT IS ATROCIOUS

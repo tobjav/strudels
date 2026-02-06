@@ -1,0 +1,23 @@
+setcpm(120/4)
+beat:
+s("bd*4")
+._scope({thickness:4})
+
+riff:
+note("[<[1@2 1@2 4 1 4 3@2 3 0@2 0@2 0@2] [1@2 1 1*2 4 1 4 3@2 3 0@2 0@2 0@2]>]/2")
+.add(note("C#3"))
+.sound("gm_electric_guitar_jazz")
+.dist("3:.07").room(2)
+.punchcard({vertical:true,flipTime:1,flipValues:0,fill:0,stroke:1,fillActive:1})
+/*
+  ,ad88PPP88ba,                     88          88                         
+ d8"  .ama.a "8a   ,d               88          ""                         
+d8'  ,8P"88"  88   88               88                                     
+88  .8P  8P   88 MM88MMM ,adPPYba,  88,dPPYba,  88 ,adPPYYba, 8b       d8  
+88  88   8'   8P   88   a8"     "8a 88P'    "8a 88 ""     `Y8 `8b     d8'  
+88  8B ,d8 ,ad8'   88   8b       d8 88       d8 88 ,adPPPPP88  `8b   d8'   
+"8a "88P"888P"     88,  "8a,   ,a8" 88b,   ,a8" 88 88,    ,88   `8b,d8'    
+ `Y8aaaaaaaad8P    "Y888 `"YbbdP"'  8Y"Ybbd8"'  88 `"8bbdP"Y8     "8"      
+    """""""""                                  ,88                         
+                                             888P"                         
+*/

@@ -1,0 +1,23 @@
+setcpm(90/4)
+
+keys:
+n("[0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8]*16")
+.chord("Cm").mode("above:c5").voicing()
+.lpf(1500)
+.sound("piano")
+.room(0.2)
+.clip(3)
+.vib(0.5)
+.gain(0.5)
+.speed("1")
+
+bass:
+n("<1 4 2@2>")
+.chord("Cm").mode("above:a0").voicing()
+.sound("supersaw")
+.gain(.8)
+.lpf(400)
+
+drums:
+s("bd bd sd [- bd] bd bd sd -")
+.hpf(200)

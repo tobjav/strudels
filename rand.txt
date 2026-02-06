@@ -1,0 +1,29 @@
+rand:
+note("c2*8").s("gm_electric_guitar_clean").n(run("<8 105 5 33>/4").slow(2))
+.lpf(perlin.range(100,1000).slow(8))
+.lpenv(-3).lpa(.1).room(.5).fast(2)
+
+bass:
+note("<c2 c3>/4")
+.sound("supersaw")
+.lpf(400)
+.gain("<0@8 2@1000>")
+
+drum:
+sound("bd wind*0.25 sd -, <[hh*4]!3 [hh*2 [hh@2 hh@2 hh@1.5]]>")
+.gain("<0@4 1@1000>")
+
+/*
+
+  ,ad88PPP88ba,                     88          88                         
+ d8"  .ama.a "8a   ,d               88          ""                         
+d8'  ,8P"88"  88   88               88                                     
+88  .8P  8P   88 MM88MMM ,adPPYba,  88,dPPYba,  88 ,adPPYYba, 8b       d8  
+88  88   8'   8P   88   a8"     "8a 88P'    "8a 88 ""     `Y8 `8b     d8'  
+88  8B ,d8 ,ad8'   88   8b       d8 88       d8 88 ,adPPPPP88  `8b   d8'   
+"8a "88P"888P"     88,  "8a,   ,a8" 88b,   ,a8" 88 88,    ,88   `8b,d8'    
+ `Y8aaaaaaaad8P    "Y888 `"YbbdP"'  8Y"Ybbd8"'  88 `"8bbdP"Y8     "8"      
+    """""""""                                  ,88                         
+                                             888P"                         
+
+*/

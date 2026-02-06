@@ -1,0 +1,27 @@
+setcps(0.7);
+
+p0:
+  s("[wind]/4, <[ - bd] [- [-!3 bd] bd*2 -]>/2")
+.gain(0.4)
+.room(0.2)
+.lpf(800)
+._scope()
+
+p1: n("0 2 4 6 7 6 4 2")
+  .scale("<c3:major>/2")
+  .sound("supersaw")
+  .distort(0.7)
+  .delay(slider(0.26,0,2,0.01))
+  .superimpose((x) => x.detune("<0.5>"))
+  .lpenv(perlin.slow(3).range(1,4))
+  .lpf(perlin.slow(2).range(100,800))
+  .gain(0.1)
+  .room(perlin.slow(6).range(0,1.5))
+  ._punchcard()
+
+p2: "<<a1 a2> <e1 e2>>/4".clip(0.8)
+  .struct("x*8")
+  .s("sine")
+  .note()
+  ._scope()
+  
