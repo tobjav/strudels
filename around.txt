@@ -1,0 +1,53 @@
+// Around
+// @tobjav
+
+setcpm(90/4)
+
+const SCALE = "A:minor:pentatonic"
+const CHORDS = "<Am Dm C F>"
+
+highs:
+n("<1 2 3 2 4 3>").fast("<16@6 32@1 16@0.25>*2")
+.scale(SCALE)
+.add(note(24))
+.sound("gm_oboe")
+.hpf(300)
+.coarse(4)
+.pan(0.4)
+.gain("<0@3.75 1@1000>")
+.postgain(.3)
+.punchcard()
+
+
+kit:
+s("bd*2, hh*8, - sd - <sd sd*2 [sd bd*2] [sd oh]>")
+.bank("ace")
+.gain("<0!3.75 1!10000>")
+.postgain(.8)
+
+chords:
+n("[0,3,4,9,[<- 15 - - [10 15] - [11 13] 15>]]").fast(4).late("<.125 0>")
+.chord(CHORDS).voicing()
+.sub(note("12"))
+.pan(0.6)
+.sound("ocarina_small_stacc")
+.clip(1)
+.coarse(1)
+.postgain(1.5)
+
+click:
+s("clave:2")
+.euclidLegato("<7 9>",16)
+.coarse(5)
+.gain("<0!8 1!1000>")
+.pan(brand.range(0.4,0.6))
+
+bass:
+n("<0 0 0 -3>")
+  .chord(CHORDS).voicing()
+.sub(note(12))
+.sound("gm_lead_1_square")
+.gain(1)
+.lpf(100)
+.gain("<0!2 1!1000>")
+	
